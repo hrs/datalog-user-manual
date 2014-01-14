@@ -309,17 +309,17 @@ ancestor(A, B) :-
 Programs
 --------
 
-A Datalog reader consumes a Datalog program. A *program* is a
-sequence of zero or more statements, followed by an optional query. A
-statement is an assertion or a retraction. An *assertion* is a
+A Datalog reader consumes a Datalog program. A *program* is a sequence
+of zero or more statements, followed by an optional query. A
+*statement* is an assertion or a retraction. An *assertion* is a
 clause followed by a period, and it adds the clause to the database if
-it is safe. A *retraction* is a clause followed by a tilde, and
-it removes the clause from the database. A *query* is a literal
-followed by a question mark. The effect of reading a Datalog program
-is to modify the database as directed by its statements, and then to
-return the literal designated as the query. If no query is specified,
-a reader returns a literal know to have no answers. The following is
-a program:
+it is safe. A *retraction* is a clause followed by a tilde, and it
+removes the clause from the database. A *query* is a literal followed
+by a question mark. The effect of reading a Datalog program is to
+modify the database as directed by its statements, and then to return
+the literal designated as the query. If no query is specified, a
+reader returns a literal known to have no answers. The following is a
+program:
 
 ```prolog
 edge(a, b). edge(b, c). edge(c, d). edge(d, a).
@@ -365,9 +365,9 @@ END { print "}" }' | awk -f -
 
 An example using `/etc/passwd` as a database table follows. The
 example shows a convoluted way of determining my home directory, but
-never the less demonstrates the integration of `datalog` with
-other Unix tools. In this example, assume the Datalog import script
-above has been placed into the file `datalogimport`.
+nevertheless demonstrates the integration of `datalog` with other Unix
+tools. In this example, assume the Datalog import script above has
+been placed into the file `datalogimport`.
 
 ```bash
 sed 's/:/\t/g' /etc/passwd \
@@ -405,7 +405,7 @@ The mechanics of adding primitives is straightforward. Put your
 extensions in a file and load it using the `-l` option.  The more
 difficult part is to decide what code should be loaded.
 
-The source file for the Datalog specific Lua code is installed in the
+The source file for the Datalog-specific Lua code is installed in the
 Datalog package's data directory. The path name of the source file
 typically ends with `share/datalog/datalog.lua`. The section with a
 comment containing the words "PRIMITIVES" is relevant.
